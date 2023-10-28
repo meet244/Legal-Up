@@ -1,7 +1,7 @@
 Topic,Query
 Labor,I was fired from my job without cause. Can you help me get my job back or get compensation for my wrongful termination?
 Labor,My employer is not paying me overtime wages. Can you help me collect the wages I am owed?
-Labor,I have been discriminated against at my job because of my race, gender, age, or disability. Can you help me file a discrimination complaint?
+Labor,"I have been discriminated against at my job because of my race, gender, age, or disability. Can you help me file a discrimination complaint?"
 Labor,I was injured at work. Can you help me file a workers' compensation claim?
 Labor,I am a union member and I believe my union is not representing me properly. Can you help me file a grievance against my union?
 Labor,I am a non-immigrant worker and I believe my employer is exploiting me. Can you help me file a complaint with the Department of Labor?
@@ -29,19 +29,19 @@ Corporate,I am selling my business. Can you help me negotiate the sale price and
 Corporate,I am a member of a board of directors and I need help understanding my legal duties and responsibilities. Can you provide me with some training?
 Corporate,I am a corporate executive and I need help making sound legal decisions for my company. Can you provide me with legal counsel?
 Corporate,I am a corporate lawyer and I need help staying up-to-date on the latest corporate laws and regulations. Can you provide me with some resources?
-Criminal,-I was recently arrested for drug possession. I'm not guilty, but I'm scared and don't know what to do. Can you help me?-
-Criminal,-I was assaulted by a coworker, and the police have charged him with a crime. I want to make sure he is held accountable for his actions. Can you represent me in this case?-
+Criminal,"I was recently arrested for drug possession. I'm not guilty, but I'm scared and don't know what to do. Can you help me?"
+Criminal,"I was assaulted by a coworker, and the police have charged him with a crime. I want to make sure he is held accountable for his actions. Can you represent me in this case?"
 Criminal,I was accused of a crime that I didn't commit. I was wrongfully convicted and served time in prison. I want to clear my name and get compensation for the time I lost. Can you help me?
-Criminal,-I was the victim of a crime, and the perpetrator was never caught. I want to explore my legal options for getting justice. Can you advise me?-
+Criminal,"I was the victim of a crime, and the perpetrator was never caught. I want to explore my legal options for getting justice. Can you advise me?"
 Criminal,I'm being investigated for a crime that I didn't commit. I'm worried that I could be arrested and charged. Can you represent me and protect my rights?
-Intellectual Property,-I have a new product that I'm developing, and I want to make sure that it is protected by intellectual property law. Can you help me obtain a patent or trademark?-
+Intellectual Property,"I have a new product that I'm developing, and I want to make sure that it is protected by intellectual property law. Can you help me obtain a patent or trademark?"
 Intellectual Property,My company's intellectual property has been infringed upon. We want to take legal action against the infringer. Can you represent us in this case?
-Intellectual Property,-I'm a creative professional, and I need help negotiating contracts with clients and protecting my work from copyright infringement. Can you provide legal advice and representation?-
+Intellectual Property,"I'm a creative professional, and I need help negotiating contracts with clients and protecting my work from copyright infringement. Can you provide legal advice and representation?"
 Intellectual Property,I'm interested in starting a business that sells products or services that are protected by intellectual property law. Can you advise me on how to do this in a way that protects my rights?
-Intellectual Property,-I'm being sued for intellectual property infringement. I believe that the claims against me are unfounded, and I need help defending myself in court. Can you represent me?-
-Tax,-I'm starting a new business, and I need help setting up my tax structure and minimizing my tax liability. Can you provide tax planning and advisory services?-
-Tax,-I'm being audited by the IRS. I'm not sure what to expect, and I'm worried about making a mistake. Can you represent me and help me through the audit process?-
-Tax,-I received a tax bill that I believe is incorrect. I want to dispute the bill, but I don't know how to do it on my own. Can you help me?-
+Intellectual Property,"I'm being sued for intellectual property infringement. I believe that the claims against me are unfounded, and I need help defending myself in court. Can you represent me?"
+Tax,"I'm starting a new business, and I need help setting up my tax structure and minimizing my tax liability. Can you provide tax planning and advisory services?"
+Tax,"I'm being audited by the IRS. I'm not sure what to expect, and I'm worried about making a mistake. Can you represent me and help me through the audit process?"
+Tax,"I received a tax bill that I believe is incorrect. I want to dispute the bill, but I don't know how to do it on my own. Can you help me?"
 Tax,I'm facing tax penalties and interest. I want to negotiate with the IRS to reduce my debt. Can you represent me in these negotiations?
 Tax,I'm considering filing for bankruptcy. I'm concerned about the tax implications of bankruptcy. Can you advise me on how to best protect my rights?
 Civil,I was injured in a car accident and the other driver's insurance company is refusing to pay my medical bills. Can you help me file a lawsuit?
@@ -69,44 +69,44 @@ Family,I am getting divorced and need help with property division and alimony.
 Family,I am getting divorced and need help with child support.
 Family,I am going through a parenting dispute with my ex-partner. Can you help me resolve the dispute?
 Family,I am trying to adopt a child. Can you help me with the adoption process?
-Family,-I am trying to get a divorce, but my spouse is missing. Can you help me get a divorce by publication?-
-Family,-I am trying to get a divorce, but my spouse is refusing to cooperate. Can you help me get a default divorce?-
-Family,-I am trying to get a divorce, but my spouse is living in another country. Can you help me get an international divorce?-
+Family,"I am trying to get a divorce, but my spouse is missing. Can you help me get a divorce by publication?"
+Family,"I am trying to get a divorce, but my spouse is refusing to cooperate. Can you help me get a default divorce?"
+Family,"I am trying to get a divorce, but my spouse is living in another country. Can you help me get an international divorce?"
 Family,I am trying to get a prenuptial agreement. Can you help me draft and negotiate the agreement?
 Family,I am trying to get a postnuptial agreement. Can you help me draft and negotiate the agreement?
-Real Estate,-I am thinking of buying a house, what are the legal things I need to keep in mind?-
-Real Estate,-I am having a dispute with my neighbor over our property line, what are my options?-
-Real Estate,-I am a landlord and I have a tenant who is not paying their rent, what can I do?-
-Real Estate,-I am a tenant and I am being evicted, what are my rights?-
-Real Estate,-I want to start a real estate business, what are the legal requirements?-
-Real Estate,-I am interested in investing in real estate, what are some of the risks and rewards?-
-Real Estate,-I am having a dispute with a contractor over a home improvement project, what can I do?-
-Real Estate,-I am thinking of selling my house, what are some of the tax implications?-
-Real Estate,-I am inheriting a house from a relative, what are the legal steps I need to take?-
-Real Estate,-I am going through a divorce and I need to divide our marital assets, how does that work with real estate?-
-Constitutional,-I believe my rights have been violated by the government, what can I do?-
-Constitutional,-I am being discriminated against, what are my legal options?-
-Constitutional,-I am a free speech advocate and I am concerned about government censorship, what can I do to protect my rights?-
-Constitutional,-I am a gun rights advocate and I am concerned about government restrictions on firearms, what can I do to protect my rights?-
-Constitutional,-I am a religious freedom advocate and I am concerned about government interference with religious expression, what can I do to protect my rights?-
-Constitutional,-I am a privacy advocate and I am concerned about government surveillance, what can I do to protect my rights?-
-Constitutional,-I am a civil liberties advocate and I am concerned about government overreach, what can I do to protect my rights?-
-Constitutional,-I am a voting rights advocate and I am concerned about voter suppression, what can I do to protect my right to vote?-
-Constitutional,-I am a criminal justice reform advocate and I am concerned about mass incarceration and racial disparities in the criminal justice system, what can I do to make a difference?-
-Constitutional,-I am a climate change activist and I am concerned about government inaction on climate change, what can I do to hold the government accountable?-
-Media,-I am a journalist and I am being harassed or threatened by the government or other powerful actors, what are my rights?-
-Media,-I am a filmmaker and I am concerned about government censorship of my work, what can I do to protect my rights?-
-Media,-I am a social media user and I am concerned about government surveillance of my online activity, what can I do to protect my privacy?-
-Media,-I am a copyright holder and I am concerned about copyright infringement online, what can I do to protect my intellectual property?-
-Media,-I am a defamation victim and I am considering filing a lawsuit, what are my options?-
-Media,-I am a public figure and I am being subjected to intense media scrutiny, what are my rights?-
-Media,-I am a celebrity and I am concerned about paparazzi harassment, what can I do to protect my privacy?-
-Media,-I am a business owner and I am concerned about negative media coverage of my business, what can I do to respond?-
-Media,-I am a consumer and I am concerned about misleading advertising, what can I do to protect myself?-
-Media,-I am a victim of cyberbullying and I am considering filing a lawsuit, what are my options?-
+Real Estate,"I am thinking of buying a house, what are the legal things I need to keep in mind?"
+Real Estate,"I am having a dispute with my neighbor over our property line, what are my options?"
+Real Estate,"I am a landlord and I have a tenant who is not paying their rent, what can I do?"
+Real Estate,"I am a tenant and I am being evicted, what are my rights?"
+Real Estate,"I want to start a real estate business, what are the legal requirements?"
+Real Estate,"I am interested in investing in real estate, what are some of the risks and rewards?"
+Real Estate,"I am having a dispute with a contractor over a home improvement project, what can I do?"
+Real Estate,"I am thinking of selling my house, what are some of the tax implications?"
+Real Estate,"I am inheriting a house from a relative, what are the legal steps I need to take?"
+Real Estate,"I am going through a divorce and I need to divide our marital assets, how does that work with real estate?"
+Constitutional,"I believe my rights have been violated by the government, what can I do?"
+Constitutional,"I am being discriminated against, what are my legal options?"
+Constitutional,"I am a free speech advocate and I am concerned about government censorship, what can I do to protect my rights?"
+Constitutional,"I am a gun rights advocate and I am concerned about government restrictions on firearms, what can I do to protect my rights?"
+Constitutional,"I am a religious freedom advocate and I am concerned about government interference with religious expression, what can I do to protect my rights?"
+Constitutional,"I am a privacy advocate and I am concerned about government surveillance, what can I do to protect my rights?"
+Constitutional,"I am a civil liberties advocate and I am concerned about government overreach, what can I do to protect my rights?"
+Constitutional,"I am a voting rights advocate and I am concerned about voter suppression, what can I do to protect my right to vote?"
+Constitutional,"I am a criminal justice reform advocate and I am concerned about mass incarceration and racial disparities in the criminal justice system, what can I do to make a difference?"
+Constitutional,"I am a climate change activist and I am concerned about government inaction on climate change, what can I do to hold the government accountable?"
+Media,"I am a journalist and I am being harassed or threatened by the government or other powerful actors, what are my rights?"
+Media,"I am a filmmaker and I am concerned about government censorship of my work, what can I do to protect my rights?"
+Media,"I am a social media user and I am concerned about government surveillance of my online activity, what can I do to protect my privacy?"
+Media,"I am a copyright holder and I am concerned about copyright infringement online, what can I do to protect my intellectual property?"
+Media,"I am a defamation victim and I am considering filing a lawsuit, what are my options?"
+Media,"I am a public figure and I am being subjected to intense media scrutiny, what are my rights?"
+Media,"I am a celebrity and I am concerned about paparazzi harassment, what can I do to protect my privacy?"
+Media,"I am a business owner and I am concerned about negative media coverage of my business, what can I do to respond?"
+Media,"I am a consumer and I am concerned about misleading advertising, what can I do to protect myself?"
+Media,"I am a victim of cyberbullying and I am considering filing a lawsuit, what are my options?"
 Entertainment,I am an actor who has been signed to a new talent agency. I need a lawyer to review my contract and make sure that my interests are protected.
 Entertainment,I am a musician who is writing a new album. I need a lawyer to help me copyright my songs and protect my intellectual property.
-Entertainment,-I am a producer who is developing a new TV show. I need a lawyer to help me negotiate contracts with my cast and crew, and to protect my copyrights and trademarks.-
+Entertainment,"I am a producer who is developing a new TV show. I need a lawyer to help me negotiate contracts with my cast and crew, and to protect my copyrights and trademarks."
 Entertainment,I am a writer who is publishing my first novel. I need a lawyer to help me negotiate my book contract and to protect my copyrights.
 Entertainment,I am a social media influencer who is partnering with a new brand. I need a lawyer to review my contract and make sure that my interests are protected.
 Medical,I have been injured in a medical malpractice incident. I need a lawyer to help me file a lawsuit against the negligent healthcare provider.
