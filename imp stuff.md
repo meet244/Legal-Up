@@ -1,0 +1,49 @@
+# Types of Cases
+- Labor
+    - I was fired from my job without cause. Can you help me get my job back or get compensation for my wrongful termination?
+    - My employer is not paying me overtime wages. Can you help me collect the wages I am owed?
+    - I have been discriminated against at my job because of my race, gender, age, or disability. Can you help me file a discrimination complaint?
+    - I was injured at work. Can you help me file a workers' compensation claim?
+    - I am a union member and I believe my union is not representing me properly. Can you help me file a grievance against my union?
+    - I am a non-immigrant worker and I believe my employer is exploiting me. Can you help me file a complaint with the Department of Labor?
+    - I am an independent contractor and I believe my client is not paying me fairly. Can you help me draft a contract that protects my rights?
+    - I am a business owner and I need help developing a company handbook that complies with all labor laws. Can you help me?
+    - I am a human resources manager and I need help understanding the latest labor laws. Can you provide me with some training?
+    - I am a mediator and I need help resolving a labor dispute between two of my clients. Can you help me?
+- Consumer Protection
+    - I purchased a product that is defective and the manufacturer is refusing to refund my money. Can you help me get my money back?
+    - I was scammed by a fraudulent business. Can you help me get my money back and press charges against the scammers?
+    - I was misled by a deceptive marketing campaign. Can you help me file a complaint with the Federal Trade Commission?
+    - I was injured by a dangerous product. Can you help me file a product liability lawsuit?
+    - I have a problem with a debt collector. Can you help me negotiate with the debt collector or file a complaint with the Consumer Financial Protection Bureau?
+    - I have been denied credit or insurance because of my credit history. Can you help me dispute the inaccurate information on my credit report?
+    - I have been harassed by a telemarketer. Can you help me register my phone number on the National Do Not Call Registry?
+    - I have been contacted by a scam artist who is trying to steal my identity. Can you help me protect my identity and report the scam to the proper authorities?
+    - I am a business owner and I need help developing a compliance program to ensure that my business is complying with all consumer protection laws. Can you help me?
+    - I am a consumer advocate and I need help educating consumers about their rights. Can you provide me with some resources?
+- Corporate
+    - I am starting a new business and I need help forming a business entity. Can you help me?
+    - I need help drafting and negotiating contracts for my business. Can you help me?
+    - I need help protecting my business's intellectual property. Can you help me?
+    - I am in a dispute with another business. Can you help me negotiate a settlement or file a lawsuit?
+    - I need help complying with all corporate laws and regulations. Can you help me?
+    - I am raising capital for my business. Can you help me negotiate investment terms and draft investment documents?
+    - I am selling my business. Can you help me negotiate the sale price and draft the sale agreement?
+    - I am a member of a board of directors and I need help understanding my legal duties and responsibilities. Can you provide me with some training?
+    - I am a corporate executive and I need help making sound legal decisions for my company. Can you provide me with legal counsel?
+    - I am a corporate lawyer and I need help staying up-to-date on the latest corporate laws and regulations. Can you provide me with some resources?
+- Criminal
+- Intellectual Property
+- Tax
+- Civil
+- Human Rights
+- Family
+- Real Estate
+- Constitutional
+- Media
+- Entertainment
+- Medical
+- Immigration
+- Environmental
+- Finance
+- Banking
