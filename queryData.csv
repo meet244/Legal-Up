@@ -1,4 +1,4 @@
-Topic,Query
+caseType,caseDescription
 Labor,I was fired from my job without cause. Can you help me get my job back or get compensation for my wrongful termination?
 Labor,My employer is not paying me overtime wages. Can you help me collect the wages I am owed?
 Labor,"I have been discriminated against at my job because of my race, gender, age, or disability. Can you help me file a discrimination complaint?"
@@ -19,16 +19,16 @@ Labor,I am being forced to work off the clock. Is this legal?
 Labor,I am not being paid my wages. What can I do?
 Labor,I am being retaliated against for complaining about workplace violations. What should I do?
 Labor,I am a mediator and I need help resolving a labor dispute between two of my clients. Can you help me?
-Consumer Protection,I bought a product that is defective. What can I do?
-Consumer Protection,I was scammed by a company. How can I get my money back?
-Consumer Protection,I am having trouble with my credit card company. What are my rights?
-Consumer Protection,I am being sued by a debt collector. What should I do?
-Consumer Protection,I was denied a loan because of my credit history. Is this legal?
-Consumer Protection,I was charged for services that I did not receive. What can I do?
-Consumer Protection,I was misled by a company's advertising. What should I do?
-Consumer Protection,I am having trouble returning a product. What are my rights?
-Consumer Protection,My identity was stolen. What should I do?
-Consumer Protection,I am being harassed by a company. What can I do?
+Consumer Protection,I bought a product that is defective.ï¿½What can I do?
+Consumer Protection,I was scammed by a company.ï¿½How can I get my money back?
+Consumer Protection,I am having trouble with my credit card company.ï¿½What are my rights?
+Consumer Protection,I am being sued by a debt collector.ï¿½What should I do?
+Consumer Protection,I was denied a loan because of my credit history.ï¿½Is this legal?
+Consumer Protection,I was charged for services that I did not receive.ï¿½What can I do?
+Consumer Protection,I was misled by a company's advertising.ï¿½What should I do?
+Consumer Protection,I am having trouble returning a product.ï¿½What are my rights?
+Consumer Protection,My identity was stolen.ï¿½What should I do?
+Consumer Protection,I am being harassed by a company.ï¿½What can I do?
 Consumer Protection,I purchased a product that is defective and the manufacturer is refusing to refund my money. Can you help me get my money back?
 Consumer Protection,I was scammed by a fraudulent business. Can you help me get my money back and press charges against the scammers?
 Consumer Protection,I was misled by a deceptive marketing campaign. Can you help me file a complaint with the Federal Trade Commission?

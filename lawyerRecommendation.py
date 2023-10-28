@@ -77,7 +77,8 @@ def getMatchScore (lawyerObj, clientReqObj) :
     # Adding Lawyer Rating Points
     totalPoints += lawyerObj["rating"]*2
     
-    
+    # Adding Points by experience
+    totalPoints += lawyerObj["experience"]
     
     # Returning TotalPoints
     return totalPoints
@@ -85,29 +86,31 @@ def getMatchScore (lawyerObj, clientReqObj) :
 def sortFunction (t) : 
     return t[0]
 
-def recommendedLawyers(lawyers, clientReqObj) : 
+def recommendedLawyers(lawyers, clientReqObj, n=15) : 
     recommendedMaleLawyers = []
     recommendedFemaleLawyers = []
     finalLawyerList = []
     
     for lawyer in lawyers :
         score = getMatchScore(lawyer,clientReqObj)
-        if (lawyer["gender"] == "F") : 
-            recommendedFemaleLawyers.append( tuple( (score, lawyer) ) )
-        elif (lawyer["gender"] == "M") : 
-            recommendedMaleLawyers.append( tuple( (score, lawyer) ) ) 
+        finalLawyerList.append( (score, lawyer) )
+        
+        # if (lawyer["gender"] == "F") : 
+        #     recommendedFemaleLawyers.append( tuple( (score, lawyer) ) )
+        # elif (lawyer["gender"] == "M") : 
+        #     recommendedMaleLawyers.append( tuple( (score, lawyer) ) ) 
             
-    recommendedFemaleLawyers = sorted(recommendedFemaleLawyers, key= sortFunction, reverse=True)
-    recommendedMaleLawyers = sorted(recommendedMaleLawyers, key= sortFunction, reverse=True)
+    # recommendedFemaleLawyers = sorted(recommendedFemaleLawyers, key= sortFunction, reverse=True)
+    # recommendedMaleLawyers = sorted(recommendedMaleLawyers, key= sortFunction, reverse=True)
     
-    for i in range(20) : 
-        finalLawyerList.append(recommendedFemaleLawyers[i])
-    for i in range(20) : 
-        finalLawyerList.append(recommendedMaleLawyers[i])
+    # for i in range(20) : 
+    #     finalLawyerList.append(recommendedFemaleLawyers[i])
+    # for i in range(20) : 
+    #     finalLawyerList.append(recommendedMaleLawyers[i])
         
     finalLawyerList = sorted(finalLawyerList, key= sortFunction, reverse=True)
         
-    return finalLawyerList
+    return finalLawyerList[0:n]
     
 cReq1 = {
     "clientType" : "Individual",
