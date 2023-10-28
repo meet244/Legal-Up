@@ -1,0 +1,85 @@
+caseType,clientType,caseDescription
+Consumer Protection,Individual,A consumer alleges that a company sold them a defective product.
+Labor,Individual,An employee alleges that they were wrongfully terminated from their job.
+Corporate,Individual,A shareholder alleges that a company's board of directors breached their fiduciary duty.
+Intellectual Property,Individual,An inventor alleges that a company infringed on their patent.
+Tax,Individual,An individual alleges that the IRS incorrectly assessed their taxes.
+Criminal,Individual,"An individual is charged with a crime, such as theft or assault."
+Civil,Individual,"An individual sues another individual or company for damages, such as personal injury or breach of contract."
+Human Rights,Individual,"An individual alleges that their human rights were violated, such as the right to free speech or the right to a fair trial."
+Family,Individual,"An individual files for divorce, child custody, or child support."
+Real Estate,Individual,"An individual is involved in a real estate dispute, such as a boundary dispute or a foreclosure."
+Constitutional,Individual,"An individual alleges that their constitutional rights were violated, such as the right to due process or the right to equal protection under the law."
+Entertainment,Individual,An entertainer alleges that a studio or production company breached their contract or infringed on their intellectual property.
+Media,Individual,A journalist alleges that a government agency is violating the First Amendment by restricting their access to information.
+Medical,Individual,A patient alleges that a medical professional committed malpractice.
+Immigration,Individual,An individual is seeking to immigrate to the United States or is facing deportation.
+Environmental,Individual,An individual alleges that a company is polluting the environment or violating environmental regulations.
+Banking,Individual,A customer alleges that a bank is charging them excessive fees or is engaging in unfair lending practices.
+Finance,Individual,An investor alleges that a financial advisor defrauded them or gave them bad advice.
+Consumer Protection,Individual,"I bought a new car, but it turned out to be a lemon. I'm suing the dealership for breach of warranty."
+Labor,Individual,I was fired from my job for complaining about unsafe working conditions. I'm suing my former employer for wrongful termination.
+Corporate,Individual,"I'm a shareholder in a company, and the board of directors is making decisions that are hurting the company's bottom line. I'm suing the board for breach of fiduciary duty."
+Intellectual Property,Individual,"I wrote a song, but a record company stole it and released it without my permission. I'm suing the record company for copyright infringement."
+Tax,Individual,The IRS is auditing me for no reason. I think they're targeting me because I'm a small business owner.
+Criminal,Individual,I'm innocent of the crime I'm charged with. I was in the wrong place at the wrong time.
+Civil,Individual,I was injured in a car accident caused by a drunk driver. I'm suing the drunk driver for negligence.
+Human Rights,Individual,I was detained by immigration officials without due process. I was held in a cell for days without being allowed to see a lawyer or my family.
+Family,Individual,My spouse is cheating on me. I want to file for divorce and get custody of our children.
+Real Estate,Individual,"I bought a house, but it turned out to be haunted. I'm suing the seller for fraud."
+Constitutional,Individual,My school district suspended me for wearing a political t-shirt to school. I'm suing the school district for violating my First Amendment rights.
+Entertainment,Individual,"I'm an actor, and the film producer breached my contract by failing to pay me for my work on a movie."
+Media,Individual,"I'm a journalist, and the government is spying on me in retaliation for my critical reporting."
+Medical,Individual,"I went to the doctor for a routine checkup, but he misdiagnosed my illness. I ended up needing surgery, and I'm now in debt."
+Immigration,Individual,I'm fleeing persecution in my home country. I'm seeking asylum in the United States.
+Environmental,Individual,A company is polluting the air and water in my community. I'm suing the company to stop the pollution.
+Banking,Individual,My bank is charging me excessive overdraft fees. I'm suing the bank for unfair practices.
+Finance,Individual,My stockbroker recommended risky investments that lost me a significant amount of money. I'm suing the stockbroker for negligence.
+Consumer Protection,Small Business,My company sells a product that has been recalled. I'm worried about the damage this will do to my reputation.
+Labor,Small Business,"One of my employees is suing me for wrongful termination. I'm worried about the cost of defending the lawsuit, even if I win."
+Corporate,Small Business,A competitor is using false advertising to lure away my customers. I'm worried about losing my business.
+Intellectual Property,Small Business,Another company is using my company's trademark without permission. I'm worried about the damage this will do to my brand.
+Tax,Small Business,The IRS is auditing my company. I'm worried about the possibility of having to pay a large tax bill.
+Criminal,Small Business,"My company was hacked, and customer data was stolen. I'm worried about the legal and financial consequences of this data breach."
+Civil,Small Business,"A customer is suing my company for negligence after they were injured by one of our products. I'm worried about the cost of defending the lawsuit, even if I win."
+Human Rights,Small Business,My company is being accused of using sweatshop labor. I'm worried about the damage this will do to my company's reputation.
+Family,Small Business,"I'm getting a divorce, and I'm worried about how it will affect my business."
+Real Estate,Small Business,"I'm a landlord, and one of my tenants is refusing to pay rent. I'm worried about the financial consequences of this eviction."
+Constitutional,Small Business,The government is imposing new regulations on my industry that will make it difficult for my company to compete. I'm worried about the future of my business.
+Entertainment,Small Business,"My company is producing a movie, and the lead actor is threatening to walk off the set. I'm worried about the cost of delays and the possibility of having to reschedule the shoot."
+Media,Small Business,"My company publishes a newspaper, and we're being sued for libel by a public figure. I'm worried about the cost of defending the lawsuit, even if we win."
+Medical,Small Business,"My company is a medical practice, and one of my patients is alleging that I committed malpractice. I'm worried about the legal and financial consequences of this lawsuit."
+Immigration,Small Business,"My company employs immigrants, and I'm worried about the impact of the new immigration laws on my business."
+Environmental,Small Business,My company is being accused of polluting the environment. I'm worried about the legal and financial consequences of this environmental lawsuit.
+Banking,Small Business,My bank is refusing to give me a loan to expand my business. I'm worried about the future of my business without additional funding.
+Finance,Small Business,My company's stock price has plummeted due to a recent scandal. I'm worried about the impact this will have on my business and my investors.
+Consumer Protection,Small Business,"I'm a restaurant owner, and a customer is alleging that they got food poisoning after eating at my restaurant. I'm worried about the damage this will do to my reputation and the possibility of lawsuits."
+Labor,Small Business,"I'm a construction contractor, and one of my employees was injured on the job. I'm worried about the cost of workers' compensation claims and the possibility of lawsuits."
+Corporate,Small Business,"I'm a software company, and a competitor is suing me for patent infringement. I'm worried about the cost of defending the lawsuit, even if I win."
+Intellectual Property,Small Business,"I'm a clothing company, and a competitor is using my company's designs without permission. I'm worried about the damage this will do to my brand."
+Tax,Small Business,"I'm a small business owner, and I'm struggling to keep up with the complex tax laws. I'm worried about making mistakes that could cost me money."
+Criminal,Small Business,"My company was robbed, and thousands of dollars in cash and merchandise were stolen. I'm worried about the financial impact of this loss and the possibility of future robberies."
+Civil,Small Business,"I'm a landscaper, and a customer is suing me for negligence after their property was damaged by a tree that I planted. I'm worried about the cost of defending the lawsuit, even if I win."
+Consumer Protection,Large Corporation,"A customer is alleging that they were injured by one of our products. We are denying liability, but we are concerned about the damage this could do to our reputation."
+Labor,Large Corporation,"A group of our employees is suing us for wrongful termination. We believe that we fired them for legitimate reasons, but we are worried about the cost of defending the lawsuit and the possibility of losing."
+Corporate,Large Corporation,"A competitor is accusing us of engaging in anticompetitive practices. We deny the allegations, but we are concerned about the impact they could have on our business."
+Intellectual Property,Large Corporation,Another company is using our trademark without permission. We are concerned about the damage this could do to our brand.
+Tax,Large Corporation,The IRS is auditing us. We are concerned about the possibility of having to pay a large tax bill.
+Criminal,Large Corporation,One of our employees has been charged with embezzlement. We are cooperating with the investigation and taking steps to prevent this from happening again.
+Civil,Large Corporation,"We are being sued by a customer for negligence after they were injured at one of our stores. We deny liability, but we are concerned about the cost of defending the lawsuit and the possibility of losing."
+Human Rights,Large Corporation,"We are being accused of using sweatshop labor in our supply chain. We deny the allegations, but we are concerned about the damage they could do to our reputation."
+Family,Large Corporation,A shareholder is suing us for breach of fiduciary duty. They allege that the board of directors made decisions that benefited themselves at the expense of the company's shareholders.
+Real Estate,Large Corporation,We are involved in a dispute with a neighboring landowner over the boundary line between our properties. We are concerned about the impact this could have on our development plans.
+Constitutional,Large Corporation,The government is proposing new regulations that would have a significant impact on our industry. We are concerned about the negative impact these regulations could have on our business.
+Entertainment,Large Corporation,"One of our movies is being accused of plagiarism. We deny the allegations, but we are concerned about the damage they could do to our reputation and the possibility of lawsuits."
+Media,Large Corporation,"Our news organization is being sued for defamation by a public figure. We deny the allegations, but we are concerned about the cost of defending the lawsuit and the possibility of losing."
+Medical,Large Corporation,"One of our pharmaceutical products is being accused of causing side effects. We deny the allegations, but we are concerned about the damage they could do to our reputation and the possibility of lawsuits."
+Immigration,Large Corporation,We are facing a class-action lawsuit from our employees who are immigrants. They allege that we discriminated against them based on their immigration status.
+Environmental,Large Corporation,"We are being accused of polluting the environment. We deny the allegations, but we are concerned about the damage they could do to our reputation and the possibility of lawsuits."
+Banking,Large Corporation,We are being investigated by the government for alleged money laundering. We are cooperating with the investigation and taking steps to prevent this from happening again.
+Finance,Large Corporation,"We are being sued by investors who allege that we defrauded them. We deny the allegations, but we are concerned about the cost of defending the lawsuit and the possibility of losing."
+Consumer Protection,Large Corporation,"We are a food company, and a customer is alleging that they found a foreign object in one of our products. We are concerned about the damage this could do to our reputation and the possibility of lawsuits."
+Labor,Large Corporation,"We are a manufacturing company, and a group of our employees is suing us for wage and hour violations. We deny the allegations, but we are concerned about the cost of defending the lawsuit and the possibility of losing."
+Corporate,Large Corporation,"We are a technology company, and a competitor is suing us for patent infringement. We deny the allegations, but we are concerned about the cost of defending the lawsuit and the possibility of losing."
+Intellectual Property,Large Corporation,"We are a clothing company, and another company is using our designs without permission. We are concerned about the damage this could do to our brand."
+Tax,Large Corporation,"We are a global company, and we are struggling to comply with the complex tax laws of the countries in which we operate. We are concerned about making mistakes that could cost us money."
