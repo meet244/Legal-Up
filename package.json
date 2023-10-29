@@ -1,0 +1,41 @@
+{
+  "name": "starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "@tailwindcss/forms": "^0.5.6",
+    "axios": "^1.6.0",
+    "framer-motion": "^10.16.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-geolocated": "^4.1.2",
+    "react-icons": "^4.11.0",
+    "react-intersection-observer": "^9.5.2",
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.14.1",
+    "react-spring": "^9.7.3",
+    "react-star-ratings": "^2.3.0",
+    "tailwindcss-inset": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "postcss": "^8.4.26",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.0"
+  }
+}
