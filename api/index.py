@@ -11,7 +11,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 import pickle
 from sklearn.metrics import accuracy_score, classification_report
-
+from flask_cors import CORS
 
 # MODELS
 
@@ -23,8 +23,12 @@ caseClassify = None
 with open('caseClassifyModel.pkl', 'rb') as modelFile:
     caseClassify = pickle.load(modelFile)
 
-vectorizer = None
-with open('tfidf_vectorizer.pkl', 'rb') as vectorizerFile:
+caseVectorizer = None
+with open('case_vectorizer.pkl', 'rb') as vectorizerFile:
+    caseVectorizer = pickle.load(vectorizerFile)
+
+clientVectorizer = None
+with open('client_vectorizer.pkl', 'rb') as vectorizerFile:
     vectorizer = pickle.load(vectorizerFile)
 
 # FUNCTIONS
@@ -108,11 +112,11 @@ def recommendedLawyers(clientReqObj) -> list :
 
     # recommendedMaleLawyers = []
     # recommendedFemaleLawyers = []
-    finalLawyerList = []
+    lawyerList = []
     
     for lawyer in lawyers :
         score = getMatchScore(lawyer,clientReqObj)
-        finalLawyerList.append((score,lawyer))
+        lawyerList.append((score,lawyer))
         # if (lawyer["gender"] == "F") : 
         #     recommendedFemaleLawyers.append( tuple( (score, lawyer) ) )
         # elif (lawyer["gender"] == "M") : 
@@ -122,14 +126,15 @@ def recommendedLawyers(clientReqObj) -> list :
     # recommendedMaleLawyers = sorted(recommendedMaleLawyers, key= sortFunction, reverse=True)
     
     # for i in range(20) : 
-    #     finalLawyerList.append(recommendedFemaleLawyers[i])
+    #     lawyerList.append(recommendedFemaleLawyers[i])
     # for i in range(20) : 
-    #     finalLawyerList.append(recommendedMaleLawyers[i])
+    #     lawyerList.append(recommendedMaleLawyers[i])
         
-    finalLawyerList = sorted(finalLawyerList, key= sortFunction, reverse=True)
-    
+    lawyerList = sorted(lawyerList, key= sortFunction, reverse=True)
+    finalList = [obj for (s,obj) in lawyerList]    
+
         
-    return finalLawyerList[15]
+    return finalList[0:15]
 
 
 def findLocation(latitude:float,longitude:float) -> str:
@@ -139,16 +144,24 @@ def findLocation(latitude:float,longitude:float) -> str:
     return(location.raw['address']['city_district'])  # City
     print(location.raw['address']['state']) # State
 
+
+def preprocess_text(text):
+    text = text.lower()
+    text = text.replace('[^\w\s]', '')
+    return text
+
 def getCaseType(query:str) -> [str]:
-    # vectorizer = TfidfVectorizer(max_features=5000)
-    X_new = vectorizer.transform(query)
-    predictions = caseClassify.predict_proba(X_new)
+
+    input_text = preprocess_text(query)
+    input_text_vectorized = caseVectorizer.transform([input_text])
+    predictions = caseClassify.predict_proba(input_text_vectorized)
     for sentence, prob in zip([query], predictions):
         top_values = []
         labels = caseClassify.classes_
         for label, probability in zip(labels, prob):
             # Add the item_value to the top_values list if it's one of the top 3 values
-            if probability>=8 and len(top_values) < 3:
+            if(probability<0.08):continue
+            if (len(top_values) < 3):
                 top_values.append([round(probability,4), label])
             else:
                 # Find the minimum value in the top_values list
@@ -171,23 +184,39 @@ def getCaseType(query:str) -> [str]:
         return r
 
 def getClientType(query:str) -> [str]:
+    
     X_new = vectorizer.transform([query])
-    prediction = clientClassify.predict(X_new)
+    
+    # Make predictions using the loaded model
+    predictions = clientClassify.predict(X_new)
+    # You can also use model.predict_proba(X_new) if you need probability scores
+
+    return predictions
+
+    input_text = preprocess_text(query)
+    input_text_vectorized = caseVectorizer.transform([input_text])
+    # predictions = caseClassify.predict_proba(input_text_vectorized)
+    # input_text = preprocess_text(query)
+    # input_text_vectorized = vectorizer.transform([input_text])
+    # X_new = vectorizer.transform([query])
+    prediction = clientClassify.predict(input_text_vectorized)
     return prediction
 
 app = Flask(__name__)
+CORS(app)
+
 
 @app.route('/')
 def hi():
-    ip = request.remote_addr  # Get the IP address of the user
-    response = requests.get(f"http://api.ipstack.com/{ip}?access_key=bbccbd3f1f37d9562e10a53cd69445f7")
-    data = response.json()
-    print(data)
-    city = data.get('city', 'Unknown')
-    state = data.get('region_name', 'Unknown')
-    country = data.get('country_name', 'Unknown')
+    # ip = request.remote_addr  # Get the IP address of the user
+    # response = requests.get(f"http://api.ipstack.com/{ip}?access_key=bbccbd3f1f37d9562e10a53cd69445f7")
+    # data = response.json()
+    # print(data)
+    # city = data.get('city', 'Unknown')
+    # state = data.get('region_name', 'Unknown')
+    # country = data.get('country_name', 'Unknown')
     
-    return jsonify(f'Hello, {city},{state},{country}!')
+    return jsonify(f'Hello, Mumbai!')
 
 
 @app.route('/api/lawer')
