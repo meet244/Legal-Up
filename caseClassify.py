@@ -51,7 +51,7 @@ model.fit(x, y)
 with open('caseClassifyModel.pkl', 'wb') as modelFile : 
     pickle.dump(model, modelFile)
 
-with open('vectorizer.pkl', 'wb') as vectorizerFile:
+with open('case_vectorizer.pkl', 'wb') as vectorizerFile:
     pickle.dump(vectorizer, vectorizerFile)
 
 

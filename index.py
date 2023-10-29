@@ -1,9 +1,6 @@
 from flask import Flask,jsonify,request
 import requests
 import json
-import threading
-import uuid
-import random
 import pickle
 from googletrans import Translator
 from geopy.geocoders import Nominatim
@@ -183,7 +180,7 @@ def getCaseType(query:str) -> [str]:
         r = []
         for t in (top_values):
             r.append(t[1])
-            # print(f"{t[1]} - {100*t[0]}")
+            print(f"{t[1]} - {round(100*t[0],2)}")
         return r
 
 def getClientType(query:str) -> [str]:
@@ -208,8 +205,6 @@ def getClientType(query:str) -> [str]:
 app = Flask(__name__)
 CORS(app)
 
-app.static_url_path='/static'
-app.static_folder='static'
 
 @app.route('/')
 def hi():
@@ -224,14 +219,10 @@ def hi():
     return jsonify(f'Hello, Mumbai!')
 
 
-@app.route('/api/rate')
-def rate():
-    r = request.json.get("rate")
-    r = float(r)
-    
-    if(r>5):return 'Error',400
-    
-    return jsonify('ok')
+@app.route('/api/lawer')
+def lawer():
+
+    return jsonify('Hello, World!')
 
 
 # @app.route('/api/query', methods=['POST'])
@@ -287,39 +278,6 @@ def query():
 }
     return jsonify([ans])
 
-
-@app.route('/api/form',methods=['POST','GET'])
-def form():
-    try:
-        l = {
-            "name": str(request.json.get('name')),
-            "id": str(uuid.uuid4()),
-            "experience": int(request.json.get('experience')),
-            "speciality": (request.json.get('speciality')),
-            "location": str(request.json.get('location')),
-            "clientType": str(request.json.get('clientType')),
-            "rating": random.uniform(0.0, 5.0),
-            "jurisdiction": str(request.json.get('jurisdiction')),
-            "price": float(request.json.get('price')),
-            "avgDaysOfCompletion": int(request.json.get('avgDaysOfCompletion')),
-            "languages": (request.json.get('languages')),
-            "gender": str(request.json.get('gender'))
-        }
-
-        with open('lawyers.json', 'r') as file:
-            data = json.load(file)
-
-        data.append(l)
-        print(data[-1])
-        with open('lawyers.json', 'w') as file:
-            json.dump(data, file, indent=4)
-
-        return "ok"
-    except:
-        return "",400
-
-
-    return "ok"
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0")

@@ -1,0 +1,11 @@
+
+.nav-ul-span {
+    transition: .5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(94deg, #dae988 8.73%, #d4f229 49.92%);
+  }
+  
