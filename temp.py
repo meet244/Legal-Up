@@ -1,60 +1,26 @@
 import pandas as pd
-import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
-import pickle
 from sklearn.metrics import accuracy_score, classification_report
 
 # Step 1: Load your labeled dataset (you need to prepare this dataset)
-data1 = pd.read_csv('queryData2.csv', encoding='latin1')  # Modify this with your dataset
-data2 = pd.read_csv("caseDescDataSet.csv")
+data = pd.read_csv('queryData.csv', encoding='latin1')  # Modify this with your dataset
 
 # Step 2: Text Preprocessing (you may need to customize this based on your data)
 # Example: Tokenization, lowercase, and remove punctuation
-data1['caseDescription'] = data1['caseDescription'].str.lower().str.replace('[^\w\s]', '')
-data2['caseDescription'] = data2['caseDescription'].str.lower().str.replace('[^\w\s]', '')
+data['Query'] = data['Query'].str.lower().str.replace('[^\w\s]', '')
 
-# Creating X and Y of the merged data Sets
-x = []
-y = []
-
-for val in data1['caseDescription'] : 
-    x.append(val)
-    
-for val in data2['caseDescription'] : 
-    x.append(val)
-    
-for val in data1['caseType'] : 
-    y.append(val)
-    
-for val in data2['caseType'] : 
-    y.append(val)
-    
-print(len(x))
-print(len(y))
-    
 # Step 3: Feature Extraction (TF-IDF Vectorization)
 vectorizer = TfidfVectorizer(max_features=5000)
-x = vectorizer.fit_transform(x)
-# x = np.array(x)
-# y = np.array(y)
-
-# print(x.shape)
-# print(y.shape)
+X = vectorizer.fit_transform(data['Query'])
+y = data['Topic']
 
 # Step 4: Model Selection and Training (Multinomial Naive Bayes)
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 model = MultinomialNB()
-model.fit(x, y)
-
-# Saving Model as Pickle
-with open('caseClassifyModel.pkl', 'wb') as modelFile : 
-    pickle.dump(model, modelFile)
-
-# Saving TF-IDF Vectorizer as Pickle
-with open('tfidf_vectorizer.pkl', 'wb') as vectorizerFile:
-    pickle.dump(vectorizer, vectorizerFile)
-
+# model.fit(X_train, y_train)
+model.fit(X, y)
 
 # Step 6: Model Evaluation
 # y_pred = model.predict(X_test)
@@ -65,13 +31,13 @@ with open('tfidf_vectorizer.pkl', 'wb') as vectorizerFile:
 # Step 7: Use the trained model to classify new sentences
 new_sentences = ["Two brothers were tenant of a landlord in a commercial property.One brother had one son and a daughter (both minor) when he got divorced with his wife.The children's went into mother's custody at the time of divorce and after some years the husband (co tenant) also died. Now can the children of the deceased brother(co tenant) claim the right", "If a co-tenant dies, their share of the income from the commercial property will be taxed as part of their estate. The surviving co-tenant(s) will continue to be taxed on their share of the income.","I am a filmmaker and I am working on a new movie. I want to make sure that I do not infringe on any copyrights in my film. Can you help me review my script and identify any potential copyright issues?","I am a US citizen who is married to a foreign national. My spouse wants to immigrate to the United States. Can you help me file a petition for my spouse and assist them with the immigration process?","I was recently injured in a medical malpractice incident. I am considering filing a lawsuit against the doctor or hospital. Can you help me assess the strength of my case and advise me on how to proceed?"]
 X_new = vectorizer.transform(new_sentences)
-# # # predictions = model.predict(X_new)
+# predictions = model.predict(X_new)
 predictions = model.predict_proba(X_new)
-# print("Predictions for new sentences:")
-# # for sentence, prediction in zip(new_sentences, predictions):
-#     # print(f"Sentence: '{sentence}'\tCategory: {prediction}")
-# maxing = 0.00
-# # ret = [{1:["family",9.99]}]
+print("Predictions for new sentences:")
+# for sentence, prediction in zip(new_sentences, predictions):
+    # print(f"Sentence: '{sentence}'\tCategory: {prediction}")
+maxing = 0.00
+# ret = [{1:["family",9.99]}]
 for sentence, prob in zip(new_sentences, predictions):
     top_values = []
     labels = model.classes_
