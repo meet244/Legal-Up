@@ -51,8 +51,7 @@ model.fit(x, y)
 with open('caseClassifyModel.pkl', 'wb') as modelFile : 
     pickle.dump(model, modelFile)
 
-# Saving TF-IDF Vectorizer as Pickle
-with open('tfidf_vectorizer.pkl', 'wb') as vectorizerFile:
+with open('vectorizer.pkl', 'wb') as vectorizerFile:
     pickle.dump(vectorizer, vectorizerFile)
 
 
