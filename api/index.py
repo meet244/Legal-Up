@@ -19,9 +19,9 @@ from flask_cors import CORS
 
 # MODELS
 
-clientClassify = None
-with open('clientClassifyModel.pkl', 'rb') as modelFile:
-    clientClassify = pickle.load(modelFile)
+# clientClassify = None
+# with open('clientClassifyModel.pkl', 'rb') as modelFile:
+#     clientClassify = pickle.load(modelFile)
 
 caseClassify = None
 with open('caseClassifyModel.pkl', 'rb') as modelFile:
@@ -31,9 +31,9 @@ caseVectorizer = None
 with open('case_vectorizer.pkl', 'rb') as vectorizerFile:
     caseVectorizer = pickle.load(vectorizerFile)
 
-clientVectorizer = None
-with open('client_vectorizer.pkl', 'rb') as vectorizerFile:
-    vectorizer = pickle.load(vectorizerFile)
+# clientVectorizer = None
+# with open('client_vectorizer.pkl', 'rb') as vectorizerFile:
+#     vectorizer = pickle.load(vectorizerFile)
 
 # FUNCTIONS
 
@@ -187,24 +187,15 @@ def getCaseType(query:str) -> [str]:
             # print(f"{t[1]} - {100*t[0]}")
         return r
 
-def getClientType(query:str) -> [str]:
+# def getClientType(query:str) -> [str]:
     
-    X_new = vectorizer.transform([query])
+#     X_new = vectorizer.transform([query])
     
-    # Make predictions using the loaded model
-    predictions = clientClassify.predict(X_new)
-    # You can also use model.predict_proba(X_new) if you need probability scores
+#     # Make predictions using the loaded model
+#     predictions = clientClassify.predict(X_new)
+#     # You can also use model.predict_proba(X_new) if you need probability scores
 
-    return predictions
-
-    input_text = preprocess_text(query)
-    input_text_vectorized = caseVectorizer.transform([input_text])
-    # predictions = caseClassify.predict_proba(input_text_vectorized)
-    # input_text = preprocess_text(query)
-    # input_text_vectorized = vectorizer.transform([input_text])
-    # X_new = vectorizer.transform([query])
-    prediction = clientClassify.predict(input_text_vectorized)
-    return prediction
+#     return predictions
 
 app = Flask(__name__)
 CORS(app)
@@ -255,7 +246,8 @@ def query():
     cases = getCaseType(q)
 
     # Client Classify
-    clientType = getClientType(q)
+    # clientType = getClientType(q)
+    clientType =[""]
 
     # Find Location
     lat = request.json.get('latitude')
