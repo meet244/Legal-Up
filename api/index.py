@@ -338,13 +338,13 @@ def form():
             "gender": str(request.json.get("gender")),
         }
 
-        with open("lawyers.json", "r") as file:
-            data = json.load(file)
+        # with open("lawyers.json", "r") as file:
+        #     data = json.load(file)
 
-        data.append(l)
-        print(data[-1])
-        with open("lawyers.json", "w") as file:
-            json.dump(data, file, indent=4)
+        # data.append(l)
+        # print(data[-1])
+        # with open("lawyers.json", "w") as file:
+        #     json.dump(data, file, indent=4)
 
         return "ok"
     except:
