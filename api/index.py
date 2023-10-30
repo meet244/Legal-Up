@@ -23,13 +23,13 @@ from flask_cors import CORS
 # with open('clientClassifyModel.pkl', 'rb') as modelFile:
 #     clientClassify = pickle.load(modelFile)
 
-caseClassify = None
-with open('caseClassifyModel.pkl', 'rb') as modelFile:
-    caseClassify = pickle.load(modelFile)
+# caseClassify = None
+# with open('caseClassifyModel.pkl', 'rb') as modelFile:
+#     caseClassify = pickle.load(modelFile)
 
-caseVectorizer = None
-with open('case_vectorizer.pkl', 'rb') as vectorizerFile:
-    caseVectorizer = pickle.load(vectorizerFile)
+# caseVectorizer = None
+# with open('case_vectorizer.pkl', 'rb') as vectorizerFile:
+#     caseVectorizer = pickle.load(vectorizerFile)
 
 # clientVectorizer = None
 # with open('client_vectorizer.pkl', 'rb') as vectorizerFile:
