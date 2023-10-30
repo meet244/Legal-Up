@@ -1,20 +1,20 @@
 from flask import Flask, jsonify, request
-import requests
-import json
-import threading
+# import requests
+# import json
+# import threading
 import uuid
 import random
-import pickle
-import os
+# import pickle
+# import os
 from googletrans import Translator
 from geopy.geocoders import Nominatim
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
-import pickle
-from sklearn.metrics import accuracy_score, classification_report
+# import pandas as pd
+# import numpy as np
+# from sklearn.model_selection import train_test_split
+# from sklearn.feature_extraction.text import TfidfVectorizer
+# from sklearn.naive_bayes import MultinomialNB
+# import pickle
+# from sklearn.metrics import accuracy_score, classification_report
 from flask_cors import CORS
 
 # MODELS
@@ -117,36 +117,8 @@ def sortFunction(t):
 def recommendedLawyers(clientReqObj) -> list:
     # with open('lawyers.json','r') as f :
     #     lawyers = json.load(f)
-    lawyers = [
-        {
-            "name": "Anay Ahluwalia",
-            "id": "bc0ea250-6e34-4588-ba7a-a7ded6179293",
-            "experience": 20,
-            "speciality": ["Corporate", "Consumer Protection", "Labor"],
-            "location": "Hyderabad",
-            "clientType": "Large Corporations",
-            "rating": 5.0,
-            "jurisdiction": "Supreme Court",
-            "price": 420.69,
-            "avgDaysOfCompletion": 117,
-            "languages": ["Hindi", "Telugu"],
-            "gender": "M",
-        },
-        {
-            "name": "Arnav Dubey",
-            "id": "13c65fee-1467-481d-b0d6-6b3b8da2dfbf",
-            "experience": 29,
-            "speciality": ["Criminal", "Tax", "Intellectual Property"],
-            "location": "Delhi",
-            "clientType": "Small Businesses",
-            "rating": 2.0,
-            "jurisdiction": "Specialized Court",
-            "price": 435.66,
-            "avgDaysOfCompletion": 119,
-            "languages": ["Urdu", "Kannada", "Tamil"],
-            "gender": "M",
-        },
-    ]
+    
+    lawyers = []
 
     # recommendedMaleLawyers = []
     # recommendedFemaleLawyers = []
