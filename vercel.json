@@ -8,5 +8,10 @@
         "source": "/:path(api/.*)",
         "destination": "/api"
       }
-    ]
+    ],
+    "functions": {
+        "api/*": {
+          "memory": 3000
+        }
+      }
   }
