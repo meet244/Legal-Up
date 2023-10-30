@@ -9,9 +9,13 @@
         "destination": "/api"
       }
     ],
-    "functions": {
+   "functions": {
         "api/*": {
           "memory": 3000
         }
-      }
+      },
+    ,
+  "files": {
+    "exclude": ["lawyers.json", "caseClassifyModel.pkl", "case_vectorizer.pkl"]
+  }
   }
