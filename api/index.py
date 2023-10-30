@@ -154,38 +154,38 @@ def preprocess_text(text):
     text = text.replace('[^\w\s]', '')
     return text
 
-def getCaseType(query:str) -> [str]:
+# def getCaseType(query:str) -> [str]:
 
-    input_text = preprocess_text(query)
-    input_text_vectorized = caseVectorizer.transform([input_text])
-    predictions = caseClassify.predict_proba(input_text_vectorized)
-    for sentence, prob in zip([query], predictions):
-        top_values = []
-        labels = caseClassify.classes_
-        for label, probability in zip(labels, prob):
-            # Add the item_value to the top_values list if it's one of the top 3 values
-            if(probability<0.08):continue
-            if (len(top_values) < 3):
-                top_values.append([round(probability,4), label])
-            else:
-                # Find the minimum value in the top_values list
-                tops = [i[0] for i in top_values]
-                min_value = min(tops)
+#     input_text = preprocess_text(query)
+#     input_text_vectorized = caseVectorizer.transform([input_text])
+#     predictions = caseClassify.predict_proba(input_text_vectorized)
+#     for sentence, prob in zip([query], predictions):
+#         top_values = []
+#         labels = caseClassify.classes_
+#         for label, probability in zip(labels, prob):
+#             # Add the item_value to the top_values list if it's one of the top 3 values
+#             if(probability<0.08):continue
+#             if (len(top_values) < 3):
+#                 top_values.append([round(probability,4), label])
+#             else:
+#                 # Find the minimum value in the top_values list
+#                 tops = [i[0] for i in top_values]
+#                 min_value = min(tops)
 
-                # Replace the minimum value with item_value if it's larger
-                if probability > min_value:
-                    min_index = tops.index(min_value)
-                    top_values[min_index] = [round(probability,4), label]
+#                 # Replace the minimum value with item_value if it's larger
+#                 if probability > min_value:
+#                     min_index = tops.index(min_value)
+#                     top_values[min_index] = [round(probability,4), label]
 
-                # print(f"Category: {label}\tProbability: {probability:.4f}")
-        # print("----------------------------------------")
-        # print(sentence)
-        # print("----------------------------------------")
-        r = []
-        for t in (top_values):
-            r.append(t[1])
-            # print(f"{t[1]} - {100*t[0]}")
-        return r
+#                 # print(f"Category: {label}\tProbability: {probability:.4f}")
+#         # print("----------------------------------------")
+#         # print(sentence)
+#         # print("----------------------------------------")
+#         r = []
+#         for t in (top_values):
+#             r.append(t[1])
+#             # print(f"{t[1]} - {100*t[0]}")
+#         return r
 
 # def getClientType(query:str) -> [str]:
     
@@ -217,9 +217,9 @@ def hi():
 
 @app.route('/1')
 def hi2():
-    file = os.path.join(os.getcwd(), 'model', 'case_vectorizer.pkl')
-    with open(file, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    # file = os.path.join(os.getcwd(), 'model', 'case_vectorizer.pkl')
+    # with open(file, 'r', encoding='utf-8') as f:
+    #     data = json.load(f)
         
     return jsonify(f'Hello, Mumbai!')
 
@@ -243,7 +243,8 @@ def query():
     q = translateChecks(q)
 
     # Case Classify
-    cases = getCaseType(q)
+    # cases = getCaseType(q)
+    cases = ['']
 
     # Client Classify
     # clientType = getClientType(q)
