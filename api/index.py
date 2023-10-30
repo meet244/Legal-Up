@@ -5,6 +5,7 @@ import threading
 import uuid
 import random
 import pickle
+import os
 from googletrans import Translator
 from geopy.geocoders import Nominatim
 import pandas as pd
@@ -221,6 +222,14 @@ def hi():
     # state = data.get('region_name', 'Unknown')
     # country = data.get('country_name', 'Unknown')
     
+    return jsonify(f'Hello, Mumbai!')
+
+@app.route('/1')
+def hi2():
+    file = os.path.join(os.getcwd(), 'model', 'case_vectorizer.pkl')
+    with open(file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        
     return jsonify(f'Hello, Mumbai!')
 
 

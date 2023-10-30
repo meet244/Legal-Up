@@ -6,7 +6,7 @@ import pickle
 from sklearn.metrics import accuracy_score, classification_report
 
 # Step 1: Load your labeled dataset (you need to prepare this dataset)
-data = pd.read_csv('caseDescDataSet.csv', encoding='latin1')  # Modify this with your dataset
+data = pd.read_csv('ClientClassifyData.csv', encoding='latin1')  # Modify this with your dataset
 
 # Step 2: Text Preprocessing (you may need to customize this based on your data)
 # Example: Tokenization, lowercase, and remove punctuation

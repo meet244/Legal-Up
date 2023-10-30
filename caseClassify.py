@@ -4,11 +4,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 import pickle
+import torch
+from safetensors.torch import save_file
 from sklearn.metrics import accuracy_score, classification_report
 
 # Step 1: Load your labeled dataset (you need to prepare this dataset)
-data1 = pd.read_csv('queryData2.csv', encoding='latin1')  # Modify this with your dataset
-data2 = pd.read_csv("caseDescDataSet.csv")
+data1 = pd.read_csv('CaseClassifyData.csv', encoding='latin1')  # Modify this with your dataset
+data2 = pd.read_csv("ClientClassifyData.csv")
 
 # Step 2: Text Preprocessing (you may need to customize this based on your data)
 # Example: Tokenization, lowercase, and remove punctuation
@@ -54,6 +56,9 @@ with open('caseClassifyModel.pkl', 'wb') as modelFile :
 with open('case_vectorizer.pkl', 'wb') as vectorizerFile:
     pickle.dump(vectorizer, vectorizerFile)
 
+save_file(model, "caseClassifyModel.safetensors")
+
+save_file(vectorizer, "case_vectorizer.safetensors")
 
 # Step 6: Model Evaluation
 # y_pred = model.predict(X_test)
@@ -93,6 +98,6 @@ for sentence, prob in zip(new_sentences, predictions):
     print(sentence)
     print("----------------------------------------")
     for t in (top_values):
-        print(f"{t[1]} - {100*t[0]}")
+        print(f"{t[1]} - {round(100*t[0],2)}")
     
 

@@ -1,0 +1,9 @@
+Flask
+requests
+googletrans
+geopy
+pandas
+numpy
+scikit-learn
+nltk
+flask-cors
