@@ -163,11 +163,11 @@ def preprocess_text(text):
 def getCaseType(query:str) -> [str]:
 
     caseClassify = None
-    with open(os.path.join(os.getcwd(), 'model', 'caseClassifyModel.pkl'), 'rb') as modelFile:
+    with open('caseClassifyModel.pkl', 'rb') as modelFile:
         caseClassify = pickle.load(modelFile)
 
     caseVectorizer = None
-    with open(os.path.join(os.getcwd(), 'model', 'case_vectorizer.pkl'), 'rb') as vectorizerFile:
+    with open('case_vectorizer.pkl', 'rb') as vectorizerFile:
         caseVectorizer = pickle.load(vectorizerFile)
 
     input_text = preprocess_text(query)
@@ -203,7 +203,15 @@ def getCaseType(query:str) -> [str]:
 
 def getClientType(query:str) -> [str]:
 
-    X_new = vectorizer.transform([query])
+    clientClassify = None
+    with open('clientClassifyModel.pkl', 'rb') as modelFile:
+        clientClassify = pickle.load(modelFile)
+
+    clientVectorizer = None
+    with open('client_vectorizer.pkl', 'rb') as vectorizerFile:
+        clientVectorizer = pickle.load(vectorizerFile)
+
+    X_new = clientVectorizer.transform([query])
 
     # Make predictions using the loaded model
     predictions = clientClassify.predict(X_new)
@@ -235,14 +243,12 @@ def hi():
 def hi2():
     try:
         file = 'case_vectorizer.pkl'
-        with open(file, 'r') as f:
-            data = json.load(f)
+        with open(file, 'rb') as vectorizerFile:
+            caseVectorizer = pickle.load(vectorizerFile)
         return 'worked 2'
     except Exception as e:
         print('for 2')
-        print(e)
-    
-
+        print(e)  
     return jsonify(f"Hello, not working!")
 
 
@@ -266,11 +272,11 @@ def query():
     q = translateChecks(q)
 
     # Case Classify
-    # cases = getCaseType(q)
+    cases = getCaseType(q)
     cases = [""]
 
     # Client Classify
-    # clientType = getClientType(q)
+    clientType = getClientType(q)
     clientType = [""]
 
     # Find Location
@@ -324,13 +330,13 @@ def form():
             "gender": str(request.json.get("gender")),
         }
 
-        # with open("lawyers.json", "r") as file:
-        #     data = json.load(file)
+        with open("lawyers.json", "r") as file:
+            data = json.load(file)
 
-        # data.append(l)
-        # print(data[-1])
-        # with open("lawyers.json", "w") as file:
-        #     json.dump(data, file, indent=4)
+        data.append(l)
+        print(data[-1])
+        with open("lawyers.json", "w") as file:
+            json.dump(data, file, indent=4)
 
         return "ok"
     except:
