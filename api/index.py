@@ -233,11 +233,24 @@ def hi():
 
 @app.route("/1")
 def hi2():
-    file = os.path.join(os.getcwd(), 'model', 'case_vectorizer.pkl')
-    with open(file, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    try:
+        file = os.path.join('/model/case_vectorizer.pkl')
+        with open(file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return 'worked 1'
+    except Exception as e:
+        print(e)
 
-    return jsonify(f"Hello, working!")
+    try:
+        file = os.path.join(os.path.join('model','case_vectorizer.pkl'))
+        with open(file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return 'worked 2'
+    except Exception as e:
+        print(e)
+    
+
+    return jsonify(f"Hello, not working!")
 
 
 @app.route("/api/rate")
