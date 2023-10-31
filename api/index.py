@@ -1,68 +1,49 @@
 from flask import Flask, jsonify, request
-# import requests
 import json
-# import threading
 import uuid
 import random
-import pickle
+import joblib
 import os
 from googletrans import Translator
 from geopy.geocoders import Nominatim
-# import pandas as pd
-# import numpy as np
-# from sklearn.model_selection import train_test_split
-# from sklearn.feature_extraction.text import TfidfVectorizer
-# from sklearn.naive_bayes import MultinomialNB
-# import pickle
-# from sklearn.metrics import accuracy_score, classification_report
 from flask_cors import CORS
 
-# MODELS
 
-# clientClassify = None
-# with open('clientClassifyModel.pkl', 'rb') as modelFile:
-#     clientClassify = pickle.load(modelFile)
+clientClassify = None
+with open('client.joblib', 'rb') as modelFile:
+    clientClassify = joblib.load(modelFile)
 
-# caseClassify = None
-# with open('caseClassifyModel.pkl', 'rb') as modelFile:
-#     caseClassify = pickle.load(modelFile)
+caseClassify = None
+with open('case.joblib', 'rb') as modelFile:
+    caseClassify = joblib.load(modelFile)
 
-# caseVectorizer = None
-# with open('case_vectorizer.pkl', 'rb') as vectorizerFile:
-#     caseVectorizer = pickle.load(vectorizerFile)
-
-# clientVectorizer = None
-# with open('client_vectorizer.pkl', 'rb') as vectorizerFile:
-#     vectorizer = pickle.load(vectorizerFile)
-
-# FUNCTIONS
 
 
 def translateChecks(text: str) -> str:
     translator = Translator()
 
-    # Text you want to translate
-    # text_to_translate = "Ich liebe dich."
-    # text_to_translate = "Konichiwa"
+    
+    
+    
 
-    # Detect the source language (optional)
+    
     print(text)
     detected_lang = translator.detect(text).lang
 
     if detected_lang != "en":
-        # Translate the text to another language (e.g., Spanish)
+        
         translated_text = translator.translate(text, dest="en")
         return translated_text
     return text
-    # print(f"Original Text: {text_to_translate}")
-    # print(f"Detected Language: {detected_lang}")
-    # print(f"Translated Text: {translated_text.text}")
+    
+    
+    
 
 
 def getMatchScore(lawyerObj, clientReqObj):
     totalPoints = 0
 
-    # Points for Case Match
+    
     caseTypePoints = 0
     for cCaseType in clientReqObj["caseType"]:
         for lCaseType in lawyerObj["speciality"]:
@@ -74,7 +55,7 @@ def getMatchScore(lawyerObj, clientReqObj):
 
     totalPoints += caseTypePoints
 
-    # Points for Languages
+    
     languagePoints = 0
     for cLang in clientReqObj["languages"]:
         for lLang in lawyerObj["languages"]:
@@ -86,7 +67,7 @@ def getMatchScore(lawyerObj, clientReqObj):
 
     totalPoints += languagePoints
 
-    # Calculating Budget Points
+    
     budgetPoints = 0
     a = max(clientReqObj["budget"], lawyerObj["price"])
     b = min(clientReqObj["budget"], lawyerObj["price"])
@@ -97,16 +78,16 @@ def getMatchScore(lawyerObj, clientReqObj):
 
     totalPoints += budgetPoints
 
-    # Caluclating Location Points
+    
     locationPoint = 0
     if clientReqObj["location"] == lawyerObj["location"]:
         locationPoint += 10
     totalPoints += locationPoint
 
-    # Adding Lawyer Rating Points
+    
     totalPoints += lawyerObj["rating"] * 2
 
-    # Returning TotalPoints
+    
     return totalPoints
 
 
@@ -120,25 +101,25 @@ def recommendedLawyers(clientReqObj) -> list:
     
     lawyers = []
 
-    # recommendedMaleLawyers = []
-    # recommendedFemaleLawyers = []
+    
+    
     lawyerList = []
 
     for lawyer in lawyers:
         score = getMatchScore(lawyer, clientReqObj)
         lawyerList.append((score, lawyer))
-        # if (lawyer["gender"] == "F") :
-        #     recommendedFemaleLawyers.append( tuple( (score, lawyer) ) )
-        # elif (lawyer["gender"] == "M") :
-        #     recommendedMaleLawyers.append( tuple( (score, lawyer) ) )
+        
+        
+        
+        
 
-    # recommendedFemaleLawyers = sorted(recommendedFemaleLawyers, key= sortFunction, reverse=True)
-    # recommendedMaleLawyers = sorted(recommendedMaleLawyers, key= sortFunction, reverse=True)
+    
+    
 
-    # for i in range(20) :
-    #     lawyerList.append(recommendedFemaleLawyers[i])
-    # for i in range(20) :
-    #     lawyerList.append(recommendedMaleLawyers[i])
+    
+    
+    
+    
 
     lawyerList = sorted(lawyerList, key=sortFunction, reverse=True)
     finalList = [obj for (s, obj) in lawyerList]
@@ -150,8 +131,8 @@ def findLocation(latitude: float, longitude: float) -> str:
     geolocator = Nominatim(user_agent="my-app")
     location = geolocator.reverse(f"{latitude}, {longitude}")
 
-    return location.raw["address"]["city_district"]  # City
-    print(location.raw["address"]["state"])  # State
+    return location.raw["address"]["city_district"]  
+    print(location.raw["address"]["state"])  
 
 
 def preprocess_text(text):
@@ -162,61 +143,37 @@ def preprocess_text(text):
 
 def getCaseType(query:str) -> [str]:
 
-    caseClassify = None
-    with open('caseClassifyModel.pkl', 'rb') as modelFile:
-        caseClassify = pickle.load(modelFile)
-
-    caseVectorizer = None
-    with open('case_vectorizer.pkl', 'rb') as vectorizerFile:
-        caseVectorizer = pickle.load(vectorizerFile)
-
-    input_text = preprocess_text(query)
-    input_text_vectorized = caseVectorizer.transform([input_text])
-    predictions = caseClassify.predict_proba(input_text_vectorized)
+    predictions = caseClassify.predict_proba(query)
     for sentence, prob in zip([query], predictions):
         top_values = []
         labels = caseClassify.classes_
         for label, probability in zip(labels, prob):
-            # Add the item_value to the top_values list if it's one of the top 3 values
+            
             if(probability<0.08):continue
             if (len(top_values) < 3):
                 top_values.append([round(probability,4), label])
             else:
-                # Find the minimum value in the top_values list
+                
                 tops = [i[0] for i in top_values]
                 min_value = min(tops)
 
-                # Replace the minimum value with item_value if it's larger
+                
                 if probability > min_value:
                     min_index = tops.index(min_value)
                     top_values[min_index] = [round(probability,4), label]
 
-                # print(f"Category: {label}\tProbability: {probability:.4f}")
-        # print("----------------------------------------")
-        # print(sentence)
-        # print("----------------------------------------")
+                
+        
+        
+        
         r = []
         for t in (top_values):
             r.append(t[1])
-            # print(f"{t[1]} - {100*t[0]}")
+            
         return r
 
 def getClientType(query:str) -> [str]:
-
-    clientClassify = None
-    with open('clientClassifyModel.pkl', 'rb') as modelFile:
-        clientClassify = pickle.load(modelFile)
-
-    clientVectorizer = None
-    with open('client_vectorizer.pkl', 'rb') as vectorizerFile:
-        clientVectorizer = pickle.load(vectorizerFile)
-
-    X_new = clientVectorizer.transform([query])
-
-    # Make predictions using the loaded model
-    predictions = clientClassify.predict(X_new)
-    # You can also use model.predict_proba(X_new) if you need probability scores
-
+    predictions = clientClassify.predict(query)
     return predictions
 
 app = Flask(__name__)
@@ -228,28 +185,7 @@ app.static_folder = "static"
 
 @app.route("/")
 def hi():
-    # ip = request.remote_addr  # Get the IP address of the user
-    # response = requests.get(f"http://api.ipstack.com/{ip}?access_key=bbccbd3f1f37d9562e10a53cd69445f7")
-    # data = response.json()
-    # print(data)
-    # city = data.get('city', 'Unknown')
-    # state = data.get('region_name', 'Unknown')
-    # country = data.get('country_name', 'Unknown')
-
-    return jsonify(f"Hello, Mumbai!")
-
-
-@app.route("/1")
-def hi2():
-    try:
-        file = 'case_vectorizer.pkl'
-        with open(file, 'rb') as vectorizerFile:
-            caseVectorizer = pickle.load(vectorizerFile)
-        return 'worked 2'
-    except Exception as e:
-        print('for 2')
-        print(e)  
-    return jsonify(f"Hello, not working!")
+    return jsonify(f"Hello, There!")
 
 
 @app.route("/api/rate")
@@ -263,28 +199,27 @@ def rate():
     return jsonify("ok")
 
 
-# @app.route('/api/query', methods=['POST'])
 @app.route("/api/query", methods=["POST", "GET"])
 def query():
-    # Translate
+    
     q = request.json.get("query")
 
     q = translateChecks(q)
 
-    # Case Classify
+    
     cases = getCaseType(q)
     cases = [""]
 
-    # Client Classify
+    
     clientType = getClientType(q)
     clientType = [""]
 
-    # Find Location
+    
     lat = request.json.get("latitude")
     lon = request.json.get("longitude")
     state = findLocation(float(lat), float(lon))
 
-    # Recommend Model
+    
     client = {
         "clientType": clientType,
         "caseType": cases,
@@ -295,21 +230,6 @@ def query():
     finals = recommendedLawyers(client)
 
     return jsonify(finals)
-    # process query
-    # example result
-    ans = {
-        "name": "Jayesh Kapur",
-        "experience": 23,
-        "typesOfCases": ["Immigration Law", "Medical Law"],
-        "location": "Bangalore",
-        "possibleClients": "Large Corporations",
-        "ClientFeedback": 5.0,
-        "jurisdiction": "High Court",
-        "price": 242.45,
-        "avgDaysOfDisposal": 100,
-        "languages": ["Telugu", "Urdu", "Tamil"],
-    }
-    return jsonify([ans])
 
 
 @app.route("/api/form", methods=["POST", "GET"])
@@ -341,8 +261,6 @@ def form():
         return "ok"
     except:
         return "", 400
-
-    return "ok"
 
 
 if __name__ == "__main__":
