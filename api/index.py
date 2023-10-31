@@ -1,11 +1,11 @@
 from flask import Flask, jsonify, request
 # import requests
-# import json
+import json
 # import threading
 import uuid
 import random
-# import pickle
-# import os
+import pickle
+import os
 from googletrans import Translator
 from geopy.geocoders import Nominatim
 # import pandas as pd
@@ -115,8 +115,8 @@ def sortFunction(t):
 
 
 def recommendedLawyers(clientReqObj) -> list:
-    # with open('lawyers.json','r') as f :
-    #     lawyers = json.load(f)
+    with open(os.path.join(os.getcwd(), 'dataset', 'lawyers.json'),'r') as f :
+        lawyers = json.load(f)
     
     lawyers = []
 
@@ -160,48 +160,56 @@ def preprocess_text(text):
     return text
 
 
-# def getCaseType(query:str) -> [str]:
+def getCaseType(query:str) -> [str]:
 
-#     input_text = preprocess_text(query)
-#     input_text_vectorized = caseVectorizer.transform([input_text])
-#     predictions = caseClassify.predict_proba(input_text_vectorized)
-#     for sentence, prob in zip([query], predictions):
-#         top_values = []
-#         labels = caseClassify.classes_
-#         for label, probability in zip(labels, prob):
-#             # Add the item_value to the top_values list if it's one of the top 3 values
-#             if(probability<0.08):continue
-#             if (len(top_values) < 3):
-#                 top_values.append([round(probability,4), label])
-#             else:
-#                 # Find the minimum value in the top_values list
-#                 tops = [i[0] for i in top_values]
-#                 min_value = min(tops)
+    caseClassify = None
+    with open(os.path.join(os.getcwd(), 'model', 'caseClassifyModel.pkl'), 'rb') as modelFile:
+        caseClassify = pickle.load(modelFile)
 
-#                 # Replace the minimum value with item_value if it's larger
-#                 if probability > min_value:
-#                     min_index = tops.index(min_value)
-#                     top_values[min_index] = [round(probability,4), label]
+    caseVectorizer = None
+    with open(os.path.join(os.getcwd(), 'model', 'case_vectorizer.pkl'), 'rb') as vectorizerFile:
+        caseVectorizer = pickle.load(vectorizerFile)
 
-#                 # print(f"Category: {label}\tProbability: {probability:.4f}")
-#         # print("----------------------------------------")
-#         # print(sentence)
-#         # print("----------------------------------------")
-#         r = []
-#         for t in (top_values):
-#             r.append(t[1])
-#             # print(f"{t[1]} - {100*t[0]}")
-#         return r
+    input_text = preprocess_text(query)
+    input_text_vectorized = caseVectorizer.transform([input_text])
+    predictions = caseClassify.predict_proba(input_text_vectorized)
+    for sentence, prob in zip([query], predictions):
+        top_values = []
+        labels = caseClassify.classes_
+        for label, probability in zip(labels, prob):
+            # Add the item_value to the top_values list if it's one of the top 3 values
+            if(probability<0.08):continue
+            if (len(top_values) < 3):
+                top_values.append([round(probability,4), label])
+            else:
+                # Find the minimum value in the top_values list
+                tops = [i[0] for i in top_values]
+                min_value = min(tops)
 
-# def getClientType(query:str) -> [str]:
+                # Replace the minimum value with item_value if it's larger
+                if probability > min_value:
+                    min_index = tops.index(min_value)
+                    top_values[min_index] = [round(probability,4), label]
 
-#     X_new = vectorizer.transform([query])
+                # print(f"Category: {label}\tProbability: {probability:.4f}")
+        # print("----------------------------------------")
+        # print(sentence)
+        # print("----------------------------------------")
+        r = []
+        for t in (top_values):
+            r.append(t[1])
+            # print(f"{t[1]} - {100*t[0]}")
+        return r
 
-#     # Make predictions using the loaded model
-#     predictions = clientClassify.predict(X_new)
-#     # You can also use model.predict_proba(X_new) if you need probability scores
+def getClientType(query:str) -> [str]:
 
-#     return predictions
+    X_new = vectorizer.transform([query])
+
+    # Make predictions using the loaded model
+    predictions = clientClassify.predict(X_new)
+    # You can also use model.predict_proba(X_new) if you need probability scores
+
+    return predictions
 
 app = Flask(__name__)
 CORS(app)
@@ -225,11 +233,11 @@ def hi():
 
 @app.route("/1")
 def hi2():
-    # file = os.path.join(os.getcwd(), 'model', 'case_vectorizer.pkl')
-    # with open(file, 'r', encoding='utf-8') as f:
-    #     data = json.load(f)
+    file = os.path.join(os.getcwd(), 'model', 'case_vectorizer.pkl')
+    with open(file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
 
-    return jsonify(f"Hello, Mumbai!")
+    return jsonify(f"Hello, working!")
 
 
 @app.route("/api/rate")
