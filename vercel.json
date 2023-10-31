@@ -1,21 +1,8 @@
 {
-    "rewrites": [
-      {
-        "source": "/:path((?!api/).*)",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/:path(api/.*)",
-        "destination": "/api"
-      }
-    ],
-   "functions": {
-        "api/*": {
-          "memory": 3000
-        }
-      },
-    ,
-  "files": {
-    "exclude": ["lawyers.json", "caseClassifyModel.pkl", "case_vectorizer.pkl"]
-  }
-  }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index"
+    }
+  ]
+}
