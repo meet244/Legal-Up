@@ -234,19 +234,21 @@ def hi():
 @app.route("/1")
 def hi2():
     try:
-        file = os.path.join('/model/case_vectorizer.pkl')
+        file = os.path.join('/api/model/case_vectorizer.pkl')
         with open(file, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        return 'worked 1'
+        # return 'worked 1'
     except Exception as e:
+        print('for 1')
         print(e)
 
     try:
-        file = os.path.join(os.path.join('model','case_vectorizer.pkl'))
+        file = 'case_vectorizer.pkl'
         with open(file, 'r', encoding='utf-8') as f:
             data = json.load(f)
         return 'worked 2'
     except Exception as e:
+        print('for 2')
         print(e)
     
 
