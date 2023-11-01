@@ -6,3 +6,4 @@ pandas
 numpy
 nltk
 flask-cors
+gradio-client

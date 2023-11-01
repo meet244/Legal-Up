@@ -4,6 +4,7 @@ import uuid
 import random
 import joblib
 import os
+import gradio_client
 from googletrans import Translator
 from geopy.geocoders import Nominatim
 from flask_cors import CORS
