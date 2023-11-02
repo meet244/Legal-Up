@@ -5,15 +5,6 @@ from googletrans import Translator
 from geopy.geocoders import Nominatim
 from flask_cors import CORS
 
-def translateChecks(text: str) -> str:
-    translator = Translator()    
-    detected_lang = translator.detect(text).lang
-    if detected_lang != "en":
-        
-        translated_text = translator.translate(text, dest="en")
-        return translated_text
-    return text
-
 def getMatchScore(lawyerObj, clientReqObj):
     totalPoints = 0
     
@@ -112,9 +103,8 @@ def rate():
 def query():
     
     q = request.json.get("query")
-    q = translateChecks(q)
 
-    cases,clientType = getCaseClient(query)
+    cases,clientType = getCaseClient(q)
     
     lat = request.json.get("latitude")
     lon = request.json.get("longitude")
