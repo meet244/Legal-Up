@@ -31,7 +31,7 @@ To set up and run the Legal Up lawyer recommendation system, follow these steps:
 
 ## Development Team 👩‍💼👨‍💻
 - [Meet Patel](https://github.com/meet244/) : Created Backend and ML models
-- [Harshil Damania](https://github.com/HarshilD05): Created ML models and Data Preprocessing
+- [Harshil Damania](https://github.com/HarshilD05) : Created ML models and Data Preprocessing
 - [Mohit Nippanikar](https://github.com/Mohit-Nippanikar78) : Designed Complete Frontend
 - [Tirth Kothari](https://github.com/TirthKothari) : Designed Assets, IPs and Presentation
 
