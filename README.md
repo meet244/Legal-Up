@@ -1,6 +1,7 @@
 ![Frame 22](https://github.com/meet244/Legal-Up/assets/83262693/24b15c47-805b-43ac-9f77-2920a906da54)
 
 # Legal Up - Lawyer Recommendation System
+[![Web Demo](https://img.shields.io/badge/🤗-HuggingFace%20Space-cyan.svg)](https://huggingface.co/spaces/meet244/Legal-Up_Lawyer_Recommendation_System)
 
 ## Overview 🚀
 Welcome to Legal Up, your trusted companion for finding the right lawyer! This project is designed to recommend suitable lawyers to clients based on a concise description of their case, typically within 40-50 words. Our system leverages natural language processing and advanced matching algorithms to understand client requirements and connect them with lawyers possessing the relevant skills and expertise to provide tailored legal solutions.
