@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        button {
+            border-radius: 7px;
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to LegalUp</h1>
+        <p>We will suggest you the best lawyers for your case</p>
+        <button id="letsGoButton">Let's Go</button>
+    </div>
+
+    <script>
+        document.getElementById("letsGoButton").addEventListener("click", function () {
+            window.location.href = "https://legalup.vercel.app/";
+        });
+    </script>
+</body>
+
+</html>

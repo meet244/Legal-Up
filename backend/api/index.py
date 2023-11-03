@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import json
 import uuid
 import random
@@ -9,7 +9,6 @@ from googletrans import Translator
 from geopy.geocoders import Nominatim
 from flask_cors import CORS
 
-
 clientClassify = None
 with open('client.joblib', 'rb') as modelFile:
     clientClassify = joblib.load(modelFile)
@@ -18,16 +17,9 @@ caseClassify = None
 with open('case.joblib', 'rb') as modelFile:
     caseClassify = joblib.load(modelFile)
 
-
-
 def translateChecks(text: str) -> str:
     translator = Translator()
 
-    
-    
-    
-
-    
     print(text)
     detected_lang = translator.detect(text).lang
 
@@ -35,16 +27,10 @@ def translateChecks(text: str) -> str:
         
         translated_text = translator.translate(text, dest="en")
         return translated_text
-    return text
-    
-    
-    
-
+    return text    
 
 def getMatchScore(lawyerObj, clientReqObj):
     totalPoints = 0
-
-    
     caseTypePoints = 0
     for cCaseType in clientReqObj["caseType"]:
         for lCaseType in lawyerObj["speciality"]:
@@ -91,10 +77,8 @@ def getMatchScore(lawyerObj, clientReqObj):
     
     return totalPoints
 
-
 def sortFunction(t):
     return t[0]
-
 
 def recommendedLawyers(clientReqObj) -> list:
     with open(os.path.join(os.getcwd(), 'dataset', 'lawyers.json'),'r') as f :
@@ -127,7 +111,6 @@ def recommendedLawyers(clientReqObj) -> list:
 
     return finalList[0:15]
 
-
 def findLocation(latitude: float, longitude: float) -> str:
     geolocator = Nominatim(user_agent="my-app")
     location = geolocator.reverse(f"{latitude}, {longitude}")
@@ -135,12 +118,10 @@ def findLocation(latitude: float, longitude: float) -> str:
     return location.raw["address"]["city_district"]  
     print(location.raw["address"]["state"])  
 
-
 def preprocess_text(text):
     text = text.lower()
     text = text.replace("[^\w\s]", "")
     return text
-
 
 def getCaseType(query:str) -> [str]:
 
@@ -180,14 +161,9 @@ def getClientType(query:str) -> [str]:
 app = Flask(__name__)
 CORS(app)
 
-app.static_url_path = "/static"
-app.static_folder = "static"
-
-
 @app.route("/")
 def hi():
-    return jsonify(f"Hello, There!")
-
+    return render_template('index.html')
 
 @app.route("/api/rate")
 def rate():
@@ -198,7 +174,6 @@ def rate():
         return "Error", 400
 
     return jsonify("ok")
-
 
 @app.route("/api/query", methods=["POST", "GET"])
 def query():
@@ -231,7 +206,6 @@ def query():
     finals = recommendedLawyers(client)
 
     return jsonify(finals)
-
 
 @app.route("/api/form", methods=["POST", "GET"])
 def form():
