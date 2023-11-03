@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request,render_template
 import json
 from gradio_client import Client
 from googletrans import Translator
@@ -89,7 +89,7 @@ app.static_folder = "static"
 
 @app.route("/")
 def hi():
-    return jsonify(f"Hello, There!")
+    return render_template('index.html')
 
 @app.route("/api/rate")
 def rate():
