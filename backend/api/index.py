@@ -161,6 +161,9 @@ def getClientType(query:str) -> [str]:
 app = Flask(__name__)
 CORS(app)
 
+app.static_url_path = "/static"
+app.static_folder = "static"
+
 @app.route("/")
 def hi():
     return render_template('index.html')
