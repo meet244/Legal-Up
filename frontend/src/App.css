@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@font-face {
+  font-family: Aquire;
+  src: url("/");
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+#homepage-heading-gradient {
+  background: -webkit-linear-gradient(45deg,#022559, #3765a9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
